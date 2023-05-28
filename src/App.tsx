@@ -71,6 +71,15 @@ const Heart = ({ color, key } : HeartProps) => {
   );
 };
 
+const imageProps = {
+  mt: 4,
+  objectFit: 'contain',
+  bg: 'orange.200',
+  borderRadius: 'full',
+  boxSize: { base: '150px', sm: '300px' },
+};
+
+
 const App = () => {
   const [guess, setGuess] = useState('');
   const [remainingAttempts, setRemainingAttempts] = useState(numberOfAttempts);
@@ -118,16 +127,13 @@ const App = () => {
     
   };
   
-
   const isLetterGuessed = (letter: string) => correctGuesses.map((l) => l.toLowerCase()).includes(letter.toLowerCase());
-
 
   const getHiddenWord = () =>
     wordToGuess.word
       .split('')
       .map((letter) => (letter === ' ' ? ' ' : isLetterGuessed(letter) || isLetterGuessed(removeDiacritics(letter)) ? letter : '_'))
       .join(' ');
-
 
   const restartGame = () => {
     setGuess('');
@@ -150,30 +156,20 @@ const App = () => {
       </Heading>
 
       <Center>
-        <Image
-          src={
-            gameOver && remainingAttempts === 0
-              ? caco5
-              : gameOver && remainingAttempts > 0
-              ? caco3
-              : !gameOver && remainingAttempts > 2 && remainingAttempts <= 4
-              ? caco6
-              : !gameOver && remainingAttempts == 2
-              ? caco4
-              : !gameOver && remainingAttempts == 1
-              ? caco7
-              : caco1
-          }
-          alt="kermit"
-          mt={4}
-          objectFit='contain'
-          bg='orange.200'
-          borderRadius='full'
-          boxSize={{base: '150px', sm: '300px'}}
-
-        />
+        {gameOver && remainingAttempts === 0 ? (
+          <Image src={caco5} alt="kermit" {...imageProps} />
+        ) : gameOver && remainingAttempts > 0 ? (
+          <Image src={caco3} alt="kermit" {...imageProps} />
+        ) : !gameOver && remainingAttempts > 2 && remainingAttempts <= 4 ? (
+          <Image src={caco6} alt="kermit" {...imageProps} />
+        ) : !gameOver && remainingAttempts === 2 ? (
+          <Image src={caco4} alt="kermit" {...imageProps} />
+        ) : !gameOver && remainingAttempts === 1 ? (
+          <Image src={caco7} alt="kermit" {...imageProps} />
+        ) : (
+          <Image src={caco1} alt="kermit" {...imageProps} />
+        )}
       </Center>
-
 
       <Flex  gap="3" alignItems='center' justify='center'>
         {[...Array(numberOfAttempts)].map((_, i) => (
@@ -217,6 +213,11 @@ const App = () => {
             placeholder="Letra"
             value={guess}
             onChange={handleGuessChange}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleGuessSubmit();
+              }
+            }}
             variant='filled'
             size="md"
             marginY={2}
@@ -249,6 +250,11 @@ const App = () => {
             placeholder="Letra"
             value={guess}
             onChange={handleGuessChange}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                handleGuessSubmit();
+              }
+            }}
             variant='filled'
             size="md"
             marginY={2}
