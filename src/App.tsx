@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Input, Button, Stack, Flex, Center, Image, Heading, Highlight, Text, Avatar, Container } from '@chakra-ui/react';
 import { FaHeart, FaHeartBroken, FaPen, FaRedoAlt } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import { ImageProps } from '@chakra-ui/react';
+
 
 import caco1 from './assets/caco1.png';
 import caco3 from './assets/caco3.png';
@@ -71,14 +73,13 @@ const Heart = ({ color, key } : HeartProps) => {
   );
 };
 
-const imageProps = {
+const imageProps: ImageProps = {
   mt: 4,
   objectFit: 'contain',
   bg: 'orange.200',
   borderRadius: 'full',
   boxSize: { base: '150px', sm: '300px' },
 };
-
 
 const App = () => {
   const [guess, setGuess] = useState('');
