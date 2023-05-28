@@ -142,12 +142,12 @@ const App = () => {
 
       <Center>
         <Image
-            src={(gameOver && remainingAttempts === 0 ) ? '/src/assets/caco5.png' 
-            : (gameOver && remainingAttempts > 0 ) ? '/src/assets/caco3.png'
-            : (!gameOver && remainingAttempts > 2 && remainingAttempts <= 4 ) ? '/src/assets/caco6.png'
-            : (!gameOver && remainingAttempts == 2 ) ? '/src/assets/caco4.png'
-            : (!gameOver && remainingAttempts == 1 ) ? '/src/assets/caco7.gif'
-            : '/src/assets/caco1.png'
+            src={(gameOver && remainingAttempts === 0 ) ? '/public/caco5.png' 
+            : (gameOver && remainingAttempts > 0 ) ? '/public/caco3.png'
+            : (!gameOver && remainingAttempts > 2 && remainingAttempts <= 4 ) ? '/public/caco6.png'
+            : (!gameOver && remainingAttempts == 2 ) ? '/public/caco4.png'
+            : (!gameOver && remainingAttempts == 1 ) ? '/public/caco7.gif'
+            : '/public/caco1.png'
           }
           alt="kermit"
           mt={4}
@@ -177,7 +177,7 @@ const App = () => {
               
             <a href="https://www.instagram.com/ingraapsi/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank" rel="noopener noreferrer">
               <Container mx={0} maxW='fit-content' display='flex' alignItems='center' gap={1} paddingTop={1} paddingBottom={1} paddingLeft={2} paddingRight={2} cursor={'pointer'} borderRadius='full' bg='pink.200'  _hover={{ bg: "pink.300" }} transition={'.2s'} color='white'>
-                <Avatar size='xs' name='ingra' src='/src/assets/ingra.png' />
+                <Avatar size='xs' name='ingra' src='/public/ingra.png' />
                 <Heading as='h5' size='xs' color='white'>
                   Ingra
                 </Heading>
