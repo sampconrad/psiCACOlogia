@@ -204,7 +204,7 @@ const App = () => {
           <Heading lineHeight='tall' as='h4' size='md'>
             <Highlight
               query={getHiddenWord()}
-              styles={{ px: '4', pt: '1', pb: '2', rounded: 'full', bg: 'purple.300', color: 'white', textTransform: 'uppercase' }}
+              styles={{ px: '4', py: '2', rounded: 'full', bg: 'purple.300', color: 'white', textTransform: 'uppercase' }}
             >
               {`${getHiddenWord()}`}
             </Highlight>
@@ -242,7 +242,7 @@ const App = () => {
           <Heading  lineHeight='tall' as='h4' size='md'>
             <Highlight
               query={wordToGuess.word}
-              styles={{ px: '4', pt: '1', pb: '2', rounded: 'full', bg: remainingAttempts === 0 ? 'red.400' : 'green.400', color: 'white', textTransform: 'uppercase' }}
+              styles={{ px: '4', py: '2', rounded: 'full', bg: remainingAttempts === 0 ? 'red.400' : 'green.400', color: 'white', textTransform: 'uppercase' }}
             >
               {`${wordToGuess.word}`}
             </Highlight>
