@@ -13,7 +13,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FaHeart, FaHeartBroken, FaPen, FaRedoAlt } from 'react-icons/fa';
 
 import caco1 from './assets/caco1.png';
@@ -59,11 +59,6 @@ const wordsToGuess = [
   },
 ];
 
-const getRandomWord = (): WordsToGuessProps => {
-  const randomIndex = Math.floor(Math.random() * wordsToGuess.length);
-  return wordsToGuess[randomIndex];
-};
-
 const removeDiacritics = (str: string) => {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 };
@@ -96,12 +91,9 @@ const App = () => {
   const [guess, setGuess] = useState('');
   const [remainingAttempts, setRemainingAttempts] = useState(numberOfAttempts);
   const [correctGuesses, setCorrectGuesses] = useState<string[]>([]);
-  const [wordToGuess, setWordToGuess] = useState<WordsToGuessProps>(getRandomWord());
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [wordToGuess, setWordToGuess] = useState<WordsToGuessProps>(wordsToGuess[0]);
   const [gameOver, setGameOver] = useState(false);
-
-  useEffect(() => {
-    setWordToGuess(getRandomWord());
-  }, []);
 
   const handleGuessChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setGuess(event.target.value.toLowerCase());
@@ -155,11 +147,17 @@ const App = () => {
       )
       .join(' ');
 
+  const moveToNextWord = () => {
+    const nextIndex = (currentIndex + 1) % wordsToGuess.length;
+    setCurrentIndex(nextIndex);
+    setWordToGuess(wordsToGuess[nextIndex]);
+  };
+
   const restartGame = () => {
     setGuess('');
     setRemainingAttempts(numberOfAttempts);
     setCorrectGuesses([]);
-    setWordToGuess(getRandomWord());
+    moveToNextWord();
     setGameOver(false);
   };
 
