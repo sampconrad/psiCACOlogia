@@ -38,24 +38,32 @@ const numberOfAttempts = 6;
 
 const wordsToGuess = [
   {
-    word: 'marsha',
-    tip: 'Nome da criadora da DBT.',
+    word: 'diversidade',
+    tip: 'Representação de diferentes grupos sociais, culturais e individuais.',
   },
   {
-    word: 'borderline',
-    tip: 'Transtorno melhor tratado pela DBT.',
+    word: 'racial',
+    tip: 'Diversidade de diferentes origens.',
   },
   {
-    word: 'aceitação e mudança',
-    tip: 'Práticas utilizadas pela DBT.',
+    word: 'cultural',
+    tip: 'Diversidade que inclui diferentes línguas, costumes e tradições.',
   },
   {
-    word: 'dialética',
-    tip: 'Filosofia em que se baseia a DBT.',
+    word: 'gênero',
+    tip: 'Diversidade que abrange a aceitação das diferentes expressões de sexualidade.',
   },
   {
-    word: 'mindfullness',
-    tip: 'Técnica usada para concentração no momento presente.',
+    word: 'religiosa',
+    tip: 'Diversidade que respeita os diferentes tipos de crenças e práticas de fé.',
+  },
+  {
+    word: 'socioeconômica',
+    tip: 'Diversidade que respeita as diferentes origens financeiras.',
+  },
+  {
+    word: 'habilidades',
+    tip: 'Diversidade que respeita os diferentes tipos de necessidades, incluindo deficiências .',
   },
 ];
 
